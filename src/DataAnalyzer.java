@@ -12,4 +12,40 @@ public class DataAnalyzer {
         list.add(new Country("Japan",   93.2));
         return list;
     }
+       // ── Different team members write these methods ──────────────────
+
+    public double findMin(ArrayList<Country> countries) {
+        return 0.0;
+    }
+    public double findMax(ArrayList<Country> countries) {
+        return 0.0;
+    }    
+    public double findSum(ArrayList<Country> countries) {
+        return 0.0;
+    }
+    public double findAve(ArrayList<Country> countries) {
+        return 0.0;
+    }
+     public String findMinCountry(ArrayList<Country> countries) {
+        return "MinC";
+    }
+     public String findMaxCountry(ArrayList<Country> countries) {
+        return "MaxC";
+    }
+    // ────────────────────────────────────────────────────────────────
+
+    public String statsToJson(ArrayList<Country> countries) {
+        double min        = findMin(countries);
+        double max        = findMax(countries);
+        double avg        = findAvg(countries);
+        double sum        = findSum(countries);
+        String minCountry = findMinCountry(countries);
+        String maxCountry = findMaxCountry(countries);
+
+        return String.format(
+                "{\"count\":%d,\"min\":%.1f,\"max\":%.1f,\"avg\":%.1f,\"sum\":%.1f,\"range\":%.1f,\"minCountry\":\"%s\",\"maxCountry\":\"%s\"}",
+                countries.size(), min, max, avg, sum, (max - min), minCountry, maxCountry
+        );
+    }
+    
 }
